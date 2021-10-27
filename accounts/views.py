@@ -9,14 +9,14 @@ def register(request):
     '''
     This function is used to register the user
     Model: tbl_user
-    
+
     '''
     if request.method=='POST':
         user_name = request.POST['username']
         pass_word = request.POST['password']
         user_Created = tbl_user.objects.create(username=user_name,password=pass_word)
         user_Created.save()
-        return HttpResponse('User Created')
+        return redirect('login')
     else:
         return render(request, 'register.html')
 
