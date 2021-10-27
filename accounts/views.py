@@ -6,6 +6,11 @@ from studentdetail.views import index
 
 # Create your views here.
 def register(request):
+    '''
+    This function is used to register the user
+    Model: tbl_user
+    
+    '''
     if request.method=='POST':
         user_name = request.POST['username']
         pass_word = request.POST['password']
@@ -16,6 +21,10 @@ def register(request):
         return render(request, 'register.html')
 
 def login(request):
+    '''
+    Login Function
+    Validates username and password and redirects to home page, also sets session and user status to True
+    '''
     if request.method=='POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -38,6 +47,10 @@ def login(request):
 
 
 def logout(request):
+    '''
+    Logout Function
+    Sets user status to False and redirects to base page and terminates the session
+    '''
     try:
         username = request.session['username']
         user = tbl_user.objects.filter(username=username)

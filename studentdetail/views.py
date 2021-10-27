@@ -3,6 +3,12 @@ from django.shortcuts import redirect, render
 from studentdetail.models import tbl_student1
 # Create your views here.
 def index(request):
+    '''
+    This function is the form which is used to add the student details to the specific user which created it
+    Model: tbl_student1
+    
+
+    '''
     try:
         username = request.session['username']
         if request.method=='POST':
