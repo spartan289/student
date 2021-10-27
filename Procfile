@@ -1,1 +1,1 @@
-web: gunicorn telusko.wsgi --log-file -
+web: gunicorn student.wsgi --log-file -
