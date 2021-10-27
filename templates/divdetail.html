@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/division.css'%}">
+{% endblock %}
+{% block content %}
+
+    {% for student in students %}
+    <div id = "before">
+        <br>
+        <div id="name">{{student.student_name}}</div>
+        <div id="specialty">{{student.specialization}}</div>
+
+        <div id="detail">
+            &ensp;College Name : {{student.student_college}}<br>
+            &ensp;Degree : {{student.degree_name}}<br>
+            &ensp;Internship : {{student.internship_name}}<br>
+            &ensp;Email id : {{student.student_email}}<br>
+            &ensp;Phone no : {{student.student_phone}}<br>
+            &ensp;Gender : {{student.student_gender}}<br>
+            &ensp;Address : {{student.student_address}}<br>
+            &ensp;About : {{student.notes}}<br>
+        </div>
+
+ 
+    </div>
+    {% endfor %}
+{% endblock %}

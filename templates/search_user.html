@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block scripts %}
+<style>
+    
+    .container {
+        width: 50%;
+        margin: auto;
+        padding: auto;
+    }
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: border-box;
+    }
+    
+    
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        cursor: pointer;
+        margin: auto;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+</style>
+<link rel="stylesheet" href="{% static 'css/division.css'%}">
+
+{% endblock %}
+{% block content %}
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                   <div class="search-form">
+                       <form method="post" id = "userrecordform">
+                           <div class="input-group">
+                               <input type="text" name="user_name" class="form-control" placeholder="Enter Username">
+                               <span class="input-group-btn">
+                                   <input type="submit" id="btn" class="btn-primary" placeholder="Search">
+                               </span>
+                           </div>
+                           {% csrf_token %}
+                       </form>
+                   </div>
+               </div>
+           </div>
+        </div>   
+           <div id="show">
+            {% for student in students %}
+
+                <div id = "before">
+                <br>
+                    <div id="name">{{student.student_name}}</div>
+                    <div id="specialty">{{student.specialization}}</div>
+            
+                    <div id="detail">
+                        &ensp;College Name : {{student.student_college}}<br>
+                        &ensp;Degree : {{student.degree_name}}<br>
+                        &ensp;Internship : {{student.internship_name}}<br>
+                        &ensp;Email id : {{student.student_email}}<br>
+                        &ensp;Phone no : {{student.student_phone}}<br>
+                        &ensp;Gender : {{student.student_gender}}<br>
+                        &ensp;Address : {{student.student_address}}<br>
+                        &ensp;About : {{student.notes}}<br>
+                    </div>
+    
+                </div>
+                {% endfor %}
+            </div>
+        <script src="{% static 'js/userrecord.js'%}"></script>
+    {% endblock %}

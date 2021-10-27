@@ -1,0 +1,33 @@
+#before{
+    border-radius: 5% 2% ;
+    width: 50%;
+    height: 400px;
+    margin: auto;
+    justify-self: center;
+    background-color: #e7e7e7d0;
+    font-family: 'Raleway', sans-serif;
+}
+#name{
+    width: 200px;
+    height: 100px;
+    float: left;
+    padding-left: 5px;;
+    font-size: 40px;
+    font-weight: bold;
+    color: #4b033f;
+}
+#specialty{
+    width: 200px;
+    height: 100px;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    color: #4b033f;
+
+}
+#detail{
+    height:300px;
+    width: 400px;
+
+    float: left;
+}

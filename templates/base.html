@@ -1,0 +1,55 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'logo/logo1.png'%}" />
+
+    <link rel = "stylesheet" href = "{% static 'css/navigation.css'%}">
+    <link rel = "stylesheet" href = "{% static 'css/header.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    {% block scripts %}
+    {% endblock %}
+
+</head>
+<body>
+    
+    <div class="header">
+        
+        <div class="header-right">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
+            {% if username  %}
+            <a href="#">{{username}}</a>
+            <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Sign Up</a>
+            {% endif %}
+
+            
+    </div>
+    </div>
+    <div class="topnav">
+        <a href="{% url 'home' %}">Display Records</a>
+        <a href="{% url 'user_records' %}">Search User</a>
+        <a href="{% url 'index' %}">Add Records</a>
+    </div>
+    {% if username  %}
+    {% else %}
+    <h1>Hi Welcome, you can choose above 3 operation be sure to sign in and login</h1>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+
+</body>
+</html>
